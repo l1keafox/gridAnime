@@ -23,13 +23,15 @@ function App() {
   ];
 
   let count = -1;
-
+  let toggle = false;
   const handleOnClick = index => {
-    count = count + 1;
+    // count = count + 1;
     console.log('click');
+    toggle = !toggle;
     anime({
       targets:  ".tile",
-      backgroundColor: colors[count % (colors.length -1)],
+      opacity: toggle ? 0 : 1,
+      // backgroundColor: colors[count % (colors.length -1)],
       delay: anime.stagger(50,{
           grid:[columns,rows],
           from:index

@@ -1,16 +1,29 @@
-.App {
-  text-align: center;
-  height: 100px;
-  border: #282c34;
-  
+:root {
+  --g1:rgb(98,0,234);
+  --g2:rgb(236,64,122);
 }
-.canvas {
-  text-align: center;
-  height: 500px;
-  width: 500px;
-  border:  1px solid  #282c34;
-  
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  to{
+    background-position: -200% center;
+  }
 }
+
+
+body{
+  animation: background-pan 10s linear infinite;
+  background: linear-gradient(
+  to right,
+  var(--g1),
+  var(--g2),
+  var(--g1)
+  );
+  background-size: 200%;
+
+}
+
 
 #tiles {
   height : 100vh;
@@ -19,10 +32,20 @@
   grid-template-columns:repeat(var(--columns), 1fr);
   grid-template-rows: repeat(var(--rows), 1fr);
 }
-#tile {
-  background-color: #3e2723;
-  padding: 10px;
-  border-radius: 10px;
+
+.tile {
+  position: relative;
+}
+
+.tile:hover{
+  opacity: 0.95;
+}
+.tile:before {
+  background-color : rgb(20,20,20);
+  content: "";
+  position: absolute;
+  inset: 0.5px;
+
 }
 .App-logo {
   height: 40vmin;
